@@ -8,3 +8,23 @@
 // The algorithm is based on repetitive addition.
 
 //// Replace this comment with your code.
+@0
+D = A
+@R2
+M = D
+(LOOP)
+// if(R0 == 0) goto END
+@R0
+D = M
+@END
+D;JEQ
+@R0
+M = M - 1
+@R1
+D = M
+@R2
+M = D + M
+@LOOP
+0;JMP
+(END)
+0;JMP
