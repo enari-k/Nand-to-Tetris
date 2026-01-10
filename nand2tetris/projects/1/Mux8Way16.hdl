@@ -1,0 +1,171 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/1/Mux8Way16.hdl
+/**
+ * 8-way 16-bit multiplexor:
+ * out = a if sel = 000
+ *       b if sel = 001
+ *       c if sel = 010
+ *       d if sel = 011
+ *       e if sel = 100
+ *       f if sel = 101
+ *       g if sel = 110
+ *       h if sel = 111
+ */
+
+CHIP Mux8Way16 {
+    IN a[16], b[16], c[16], d[16], e[16], f[16], g[16], h[16], sel[3];
+    OUT out[16];
+
+    PARTS:
+    // ============================================================
+    // LAYER 1: 8 groups -> 4 groups (sel[0]を使用)
+    // 1 (Not) + 16ビット * 3 (Nand) * 4ペア = 193 Nands
+    // ============================================================
+
+    // sel[0]の反転を共有 (1 Nand)
+    Nand(a=sel[0], b=sel[0], out=nsel0);
+
+    // --- Pair 1: a vs b -> ab[16] (48 Nands) ---
+    Nand(a=a[0], b=nsel0, out=na0); Nand(a=b[0], b=sel[0], out=nb0); Nand(a=na0, b=nb0, out=ab0);
+    Nand(a=a[1], b=nsel0, out=na1); Nand(a=b[1], b=sel[0], out=nb1); Nand(a=na1, b=nb1, out=ab1);
+    Nand(a=a[2], b=nsel0, out=na2); Nand(a=b[2], b=sel[0], out=nb2); Nand(a=na2, b=nb2, out=ab2);
+    Nand(a=a[3], b=nsel0, out=na3); Nand(a=b[3], b=sel[0], out=nb3); Nand(a=na3, b=nb3, out=ab3);
+    Nand(a=a[4], b=nsel0, out=na4); Nand(a=b[4], b=sel[0], out=nb4); Nand(a=na4, b=nb4, out=ab4);
+    Nand(a=a[5], b=nsel0, out=na5); Nand(a=b[5], b=sel[0], out=nb5); Nand(a=na5, b=nb5, out=ab5);
+    Nand(a=a[6], b=nsel0, out=na6); Nand(a=b[6], b=sel[0], out=nb6); Nand(a=na6, b=nb6, out=ab6);
+    Nand(a=a[7], b=nsel0, out=na7); Nand(a=b[7], b=sel[0], out=nb7); Nand(a=na7, b=nb7, out=ab7);
+    Nand(a=a[8], b=nsel0, out=na8); Nand(a=b[8], b=sel[0], out=nb8); Nand(a=na8, b=nb8, out=ab8);
+    Nand(a=a[9], b=nsel0, out=na9); Nand(a=b[9], b=sel[0], out=nb9); Nand(a=na9, b=nb9, out=ab9);
+    Nand(a=a[10], b=nsel0, out=na10); Nand(a=b[10], b=sel[0], out=nb10); Nand(a=na10, b=nb10, out=ab10);
+    Nand(a=a[11], b=nsel0, out=na11); Nand(a=b[11], b=sel[0], out=nb11); Nand(a=na11, b=nb11, out=ab11);
+    Nand(a=a[12], b=nsel0, out=na12); Nand(a=b[12], b=sel[0], out=nb12); Nand(a=na12, b=nb12, out=ab12);
+    Nand(a=a[13], b=nsel0, out=na13); Nand(a=b[13], b=sel[0], out=nb13); Nand(a=na13, b=nb13, out=ab13);
+    Nand(a=a[14], b=nsel0, out=na14); Nand(a=b[14], b=sel[0], out=nb14); Nand(a=na14, b=nb14, out=ab14);
+    Nand(a=a[15], b=nsel0, out=na15); Nand(a=b[15], b=sel[0], out=nb15); Nand(a=na15, b=nb15, out=ab15);
+
+    // --- Pair 2: c vs d -> cd[16] (48 Nands) ---
+    Nand(a=c[0], b=nsel0, out=nc0); Nand(a=d[0], b=sel[0], out=nd0); Nand(a=nc0, b=nd0, out=cd0);
+    Nand(a=c[1], b=nsel0, out=nc1); Nand(a=d[1], b=sel[0], out=nd1); Nand(a=nc1, b=nd1, out=cd1);
+    Nand(a=c[2], b=nsel0, out=nc2); Nand(a=d[2], b=sel[0], out=nd2); Nand(a=nc2, b=nd2, out=cd2);
+    Nand(a=c[3], b=nsel0, out=nc3); Nand(a=d[3], b=sel[0], out=nd3); Nand(a=nc3, b=nd3, out=cd3);
+    Nand(a=c[4], b=nsel0, out=nc4); Nand(a=d[4], b=sel[0], out=nd4); Nand(a=nc4, b=nd4, out=cd4);
+    Nand(a=c[5], b=nsel0, out=nc5); Nand(a=d[5], b=sel[0], out=nd5); Nand(a=nc5, b=nd5, out=cd5);
+    Nand(a=c[6], b=nsel0, out=nc6); Nand(a=d[6], b=sel[0], out=nd6); Nand(a=nc6, b=nd6, out=cd6);
+    Nand(a=c[7], b=nsel0, out=nc7); Nand(a=d[7], b=sel[0], out=nd7); Nand(a=nc7, b=nd7, out=cd7);
+    Nand(a=c[8], b=nsel0, out=nc8); Nand(a=d[8], b=sel[0], out=nd8); Nand(a=nc8, b=nd8, out=cd8);
+    Nand(a=c[9], b=nsel0, out=nc9); Nand(a=d[9], b=sel[0], out=nd9); Nand(a=nc9, b=nd9, out=cd9);
+    Nand(a=c[10], b=nsel0, out=nc10); Nand(a=d[10], b=sel[0], out=nd10); Nand(a=nc10, b=nd10, out=cd10);
+    Nand(a=c[11], b=nsel0, out=nc11); Nand(a=d[11], b=sel[0], out=nd11); Nand(a=nc11, b=nd11, out=cd11);
+    Nand(a=c[12], b=nsel0, out=nc12); Nand(a=d[12], b=sel[0], out=nd12); Nand(a=nc12, b=nd12, out=cd12);
+    Nand(a=c[13], b=nsel0, out=nc13); Nand(a=d[13], b=sel[0], out=nd13); Nand(a=nc13, b=nd13, out=cd13);
+    Nand(a=c[14], b=nsel0, out=nc14); Nand(a=d[14], b=sel[0], out=nd14); Nand(a=nc14, b=nd14, out=cd14);
+    Nand(a=c[15], b=nsel0, out=nc15); Nand(a=d[15], b=sel[0], out=nd15); Nand(a=nc15, b=nd15, out=cd15);
+
+    // --- Pair 3: e vs f -> ef[16] (48 Nands) ---
+    Nand(a=e[0], b=nsel0, out=ne0); Nand(a=f[0], b=sel[0], out=nf0); Nand(a=ne0, b=nf0, out=ef0);
+    Nand(a=e[1], b=nsel0, out=ne1); Nand(a=f[1], b=sel[0], out=nf1); Nand(a=ne1, b=nf1, out=ef1);
+    Nand(a=e[2], b=nsel0, out=ne2); Nand(a=f[2], b=sel[0], out=nf2); Nand(a=ne2, b=nf2, out=ef2);
+    Nand(a=e[3], b=nsel0, out=ne3); Nand(a=f[3], b=sel[0], out=nf3); Nand(a=ne3, b=nf3, out=ef3);
+    Nand(a=e[4], b=nsel0, out=ne4); Nand(a=f[4], b=sel[0], out=nf4); Nand(a=ne4, b=nf4, out=ef4);
+    Nand(a=e[5], b=nsel0, out=ne5); Nand(a=f[5], b=sel[0], out=nf5); Nand(a=ne5, b=nf5, out=ef5);
+    Nand(a=e[6], b=nsel0, out=ne6); Nand(a=f[6], b=sel[0], out=nf6); Nand(a=ne6, b=nf6, out=ef6);
+    Nand(a=e[7], b=nsel0, out=ne7); Nand(a=f[7], b=sel[0], out=nf7); Nand(a=ne7, b=nf7, out=ef7);
+    Nand(a=e[8], b=nsel0, out=ne8); Nand(a=f[8], b=sel[0], out=nf8); Nand(a=ne8, b=nf8, out=ef8);
+    Nand(a=e[9], b=nsel0, out=ne9); Nand(a=f[9], b=sel[0], out=nf9); Nand(a=ne9, b=nf9, out=ef9);
+    Nand(a=e[10], b=nsel0, out=ne10); Nand(a=f[10], b=sel[0], out=nf10); Nand(a=ne10, b=nf10, out=ef10);
+    Nand(a=e[11], b=nsel0, out=ne11); Nand(a=f[11], b=sel[0], out=nf11); Nand(a=ne11, b=nf11, out=ef11);
+    Nand(a=e[12], b=nsel0, out=ne12); Nand(a=f[12], b=sel[0], out=nf12); Nand(a=ne12, b=nf12, out=ef12);
+    Nand(a=e[13], b=nsel0, out=ne13); Nand(a=f[13], b=sel[0], out=nf13); Nand(a=ne13, b=nf13, out=ef13);
+    Nand(a=e[14], b=nsel0, out=ne14); Nand(a=f[14], b=sel[0], out=nf14); Nand(a=ne14, b=nf14, out=ef14);
+    Nand(a=e[15], b=nsel0, out=ne15); Nand(a=f[15], b=sel[0], out=nf15); Nand(a=ne15, b=nf15, out=ef15);
+
+    // --- Pair 4: g vs h -> gh[16] (48 Nands) ---
+    Nand(a=g[0], b=nsel0, out=ng0); Nand(a=h[0], b=sel[0], out=nh0); Nand(a=ng0, b=nh0, out=gh0);
+    Nand(a=g[1], b=nsel0, out=ng1); Nand(a=h[1], b=sel[0], out=nh1); Nand(a=ng1, b=nh1, out=gh1);
+    Nand(a=g[2], b=nsel0, out=ng2); Nand(a=h[2], b=sel[0], out=nh2); Nand(a=ng2, b=nh2, out=gh2);
+    Nand(a=g[3], b=nsel0, out=ng3); Nand(a=h[3], b=sel[0], out=nh3); Nand(a=ng3, b=nh3, out=gh3);
+    Nand(a=g[4], b=nsel0, out=ng4); Nand(a=h[4], b=sel[0], out=nh4); Nand(a=ng4, b=nh4, out=gh4);
+    Nand(a=g[5], b=nsel0, out=ng5); Nand(a=h[5], b=sel[0], out=nh5); Nand(a=ng5, b=nh5, out=gh5);
+    Nand(a=g[6], b=nsel0, out=ng6); Nand(a=h[6], b=sel[0], out=nh6); Nand(a=ng6, b=nh6, out=gh6);
+    Nand(a=g[7], b=nsel0, out=ng7); Nand(a=h[7], b=sel[0], out=nh7); Nand(a=ng7, b=nh7, out=gh7);
+    Nand(a=g[8], b=nsel0, out=ng8); Nand(a=h[8], b=sel[0], out=nh8); Nand(a=ng8, b=nh8, out=gh8);
+    Nand(a=g[9], b=nsel0, out=ng9); Nand(a=h[9], b=sel[0], out=nh9); Nand(a=ng9, b=nh9, out=gh9);
+    Nand(a=g[10], b=nsel0, out=ng10); Nand(a=h[10], b=sel[0], out=nh10); Nand(a=ng10, b=nh10, out=gh10);
+    Nand(a=g[11], b=nsel0, out=ng11); Nand(a=h[11], b=sel[0], out=nh11); Nand(a=ng11, b=nh11, out=gh11);
+    Nand(a=g[12], b=nsel0, out=ng12); Nand(a=h[12], b=sel[0], out=nh12); Nand(a=ng12, b=nh12, out=gh12);
+    Nand(a=g[13], b=nsel0, out=ng13); Nand(a=h[13], b=sel[0], out=nh13); Nand(a=ng13, b=nh13, out=gh13);
+    Nand(a=g[14], b=nsel0, out=ng14); Nand(a=h[14], b=sel[0], out=nh14); Nand(a=ng14, b=nh14, out=gh14);
+    Nand(a=g[15], b=nsel0, out=ng15); Nand(a=h[15], b=sel[0], out=nh15); Nand(a=ng15, b=nh15, out=gh15);
+
+    // ============================================================
+    // LAYER 2: 4 groups -> 2 groups (sel[1]を使用)
+    // 1 (Not) + 16ビット * 3 (Nand) * 2ペア = 97 Nands
+    // ============================================================
+
+    // sel[1]の反転を共有 (1 Nand)
+    Nand(a=sel[1], b=sel[1], out=nsel1);
+
+    // --- Pair 1: ab vs cd -> abcd[16] (48 Nands) ---
+    Nand(a=ab0, b=nsel1, out=nab0); Nand(a=cd0, b=sel[1], out=ncd0); Nand(a=nab0, b=ncd0, out=abcd0);
+    Nand(a=ab1, b=nsel1, out=nab1); Nand(a=cd1, b=sel[1], out=ncd1); Nand(a=nab1, b=ncd1, out=abcd1);
+    Nand(a=ab2, b=nsel1, out=nab2); Nand(a=cd2, b=sel[1], out=ncd2); Nand(a=nab2, b=ncd2, out=abcd2);
+    Nand(a=ab3, b=nsel1, out=nab3); Nand(a=cd3, b=sel[1], out=ncd3); Nand(a=nab3, b=ncd3, out=abcd3);
+    Nand(a=ab4, b=nsel1, out=nab4); Nand(a=cd4, b=sel[1], out=ncd4); Nand(a=nab4, b=ncd4, out=abcd4);
+    Nand(a=ab5, b=nsel1, out=nab5); Nand(a=cd5, b=sel[1], out=ncd5); Nand(a=nab5, b=ncd5, out=abcd5);
+    Nand(a=ab6, b=nsel1, out=nab6); Nand(a=cd6, b=sel[1], out=ncd6); Nand(a=nab6, b=ncd6, out=abcd6);
+    Nand(a=ab7, b=nsel1, out=nab7); Nand(a=cd7, b=sel[1], out=ncd7); Nand(a=nab7, b=ncd7, out=abcd7);
+    Nand(a=ab8, b=nsel1, out=nab8); Nand(a=cd8, b=sel[1], out=ncd8); Nand(a=nab8, b=ncd8, out=abcd8);
+    Nand(a=ab9, b=nsel1, out=nab9); Nand(a=cd9, b=sel[1], out=ncd9); Nand(a=nab9, b=ncd9, out=abcd9);
+    Nand(a=ab10, b=nsel1, out=nab10); Nand(a=cd10, b=sel[1], out=ncd10); Nand(a=nab10, b=ncd10, out=abcd10);
+    Nand(a=ab11, b=nsel1, out=nab11); Nand(a=cd11, b=sel[1], out=ncd11); Nand(a=nab11, b=ncd11, out=abcd11);
+    Nand(a=ab12, b=nsel1, out=nab12); Nand(a=cd12, b=sel[1], out=ncd12); Nand(a=nab12, b=ncd12, out=abcd12);
+    Nand(a=ab13, b=nsel1, out=nab13); Nand(a=cd13, b=sel[1], out=ncd13); Nand(a=nab13, b=ncd13, out=abcd13);
+    Nand(a=ab14, b=nsel1, out=nab14); Nand(a=cd14, b=sel[1], out=ncd14); Nand(a=nab14, b=ncd14, out=abcd14);
+    Nand(a=ab15, b=nsel1, out=nab15); Nand(a=cd15, b=sel[1], out=ncd15); Nand(a=nab15, b=ncd15, out=abcd15);
+
+    // --- Pair 2: ef vs gh -> efgh[16] (48 Nands) ---
+    Nand(a=ef0, b=nsel1, out=nef0); Nand(a=gh0, b=sel[1], out=ngh0); Nand(a=nef0, b=ngh0, out=efgh0);
+    Nand(a=ef1, b=nsel1, out=nef1); Nand(a=gh1, b=sel[1], out=ngh1); Nand(a=nef1, b=ngh1, out=efgh1);
+    Nand(a=ef2, b=nsel1, out=nef2); Nand(a=gh2, b=sel[1], out=ngh2); Nand(a=nef2, b=ngh2, out=efgh2);
+    Nand(a=ef3, b=nsel1, out=nef3); Nand(a=gh3, b=sel[1], out=ngh3); Nand(a=nef3, b=ngh3, out=efgh3);
+    Nand(a=ef4, b=nsel1, out=nef4); Nand(a=gh4, b=sel[1], out=ngh4); Nand(a=nef4, b=ngh4, out=efgh4);
+    Nand(a=ef5, b=nsel1, out=nef5); Nand(a=gh5, b=sel[1], out=ngh5); Nand(a=nef5, b=ngh5, out=efgh5);
+    Nand(a=ef6, b=nsel1, out=nef6); Nand(a=gh6, b=sel[1], out=ngh6); Nand(a=nef6, b=ngh6, out=efgh6);
+    Nand(a=ef7, b=nsel1, out=nef7); Nand(a=gh7, b=sel[1], out=ngh7); Nand(a=nef7, b=ngh7, out=efgh7);
+    Nand(a=ef8, b=nsel1, out=nef8); Nand(a=gh8, b=sel[1], out=ngh8); Nand(a=nef8, b=ngh8, out=efgh8);
+    Nand(a=ef9, b=nsel1, out=nef9); Nand(a=gh9, b=sel[1], out=ngh9); Nand(a=nef9, b=ngh9, out=efgh9);
+    Nand(a=ef10, b=nsel1, out=nef10); Nand(a=gh10, b=sel[1], out=ngh10); Nand(a=nef10, b=ngh10, out=efgh10);
+    Nand(a=ef11, b=nsel1, out=nef11); Nand(a=gh11, b=sel[1], out=ngh11); Nand(a=nef11, b=ngh11, out=efgh11);
+    Nand(a=ef12, b=nsel1, out=nef12); Nand(a=gh12, b=sel[1], out=ngh12); Nand(a=nef12, b=ngh12, out=efgh12);
+    Nand(a=ef13, b=nsel1, out=nef13); Nand(a=gh13, b=sel[1], out=ngh13); Nand(a=nef13, b=ngh13, out=efgh13);
+    Nand(a=ef14, b=nsel1, out=nef14); Nand(a=gh14, b=sel[1], out=ngh14); Nand(a=nef14, b=ngh14, out=efgh14);
+    Nand(a=ef15, b=nsel1, out=nef15); Nand(a=gh15, b=sel[1], out=ngh15); Nand(a=nef15, b=ngh15, out=efgh15);
+
+    // ============================================================
+    // LAYER 3: 2 groups -> 1 output (sel[2]を使用)
+    // 1 (Not) + 16ビット * 3 (Nand) * 1ペア = 49 Nands
+    // ============================================================
+
+    // sel[2]の反転を共有 (1 Nand)
+    Nand(a=sel[2], b=sel[2], out=nsel2);
+
+    // --- Final Selection: abcd vs efgh -> out[16] (48 Nands) ---
+    Nand(a=abcd0, b=nsel2, out=nout0); Nand(a=efgh0, b=sel[2], out=nefgh0); Nand(a=nout0, b=nefgh0, out=out[0]);
+    Nand(a=abcd1, b=nsel2, out=nout1); Nand(a=efgh1, b=sel[2], out=nefgh1); Nand(a=nout1, b=nefgh1, out=out[1]);
+    Nand(a=abcd2, b=nsel2, out=nout2); Nand(a=efgh2, b=sel[2], out=nefgh2); Nand(a=nout2, b=nefgh2, out=out[2]);
+    Nand(a=abcd3, b=nsel2, out=nout3); Nand(a=efgh3, b=sel[2], out=nefgh3); Nand(a=nout3, b=nefgh3, out=out[3]);
+    Nand(a=abcd4, b=nsel2, out=nout4); Nand(a=efgh4, b=sel[2], out=nefgh4); Nand(a=nout4, b=nefgh4, out=out[4]);
+    Nand(a=abcd5, b=nsel2, out=nout5); Nand(a=efgh5, b=sel[2], out=nefgh5); Nand(a=nout5, b=nefgh5, out=out[5]);
+    Nand(a=abcd6, b=nsel2, out=nout6); Nand(a=efgh6, b=sel[2], out=nefgh6); Nand(a=nout6, b=nefgh6, out=out[6]);
+    Nand(a=abcd7, b=nsel2, out=nout7); Nand(a=efgh7, b=sel[2], out=nefgh7); Nand(a=nout7, b=nefgh7, out=out[7]);
+    Nand(a=abcd8, b=nsel2, out=nout8); Nand(a=efgh8, b=sel[2], out=nefgh8); Nand(a=nout8, b=nefgh8, out=out[8]);
+    Nand(a=abcd9, b=nsel2, out=nout9); Nand(a=efgh9, b=sel[2], out=nefgh9); Nand(a=nout9, b=nefgh9, out=out[9]);
+    Nand(a=abcd10, b=nsel2, out=nout10); Nand(a=efgh10, b=sel[2], out=nefgh10); Nand(a=nout10, b=nefgh10, out=out[10]);
+    Nand(a=abcd11, b=nsel2, out=nout11); Nand(a=efgh11, b=sel[2], out=nefgh11); Nand(a=nout11, b=nefgh11, out=out[11]);
+    Nand(a=abcd12, b=nsel2, out=nout12); Nand(a=efgh12, b=sel[2], out=nefgh12); Nand(a=nout12, b=nefgh12, out=out[12]);
+    Nand(a=abcd13, b=nsel2, out=nout13); Nand(a=efgh13, b=sel[2], out=nefgh13); Nand(a=nout13, b=nefgh13, out=out[13]);
+    Nand(a=abcd14, b=nsel2, out=nout14); Nand(a=efgh14, b=sel[2], out=nefgh14); Nand(a=nout14, b=nefgh14, out=out[14]);
+    Nand(a=abcd15, b=nsel2, out=nout15); Nand(a=efgh15, b=sel[2], out=nefgh15); Nand(a=nout15, b=nefgh15, out=out[15]);
+}

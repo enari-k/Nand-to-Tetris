@@ -1,0 +1,81 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/3/a/Register.hdl
+/**
+ * 16-bit register:
+ * If load is asserted, the register's value is set to in;
+ * Otherwise, the register maintains its current value:
+ * if (load(t)) out(t+1) = int(t), else out(t+1) = out(t)
+ */
+CHIP Register {
+    IN in[16], load;
+    OUT out[16];
+
+    PARTS:
+    //// Replace this comment with your code.
+    Nand(a=load, b=load, out=nload);
+    // Bit 0
+    Nand(a=out0, b=nload, out=oa0); Nand(a=in[0], b=load, out=ia0); Nand(a=oa0, b=ia0, out=next0);
+    DFF(in=next0, out=out0, out=out[0]);
+
+    // Bit 1
+    Nand(a=out1, b=nload, out=oa1); Nand(a=in[1], b=load, out=ia1); Nand(a=oa1, b=ia1, out=next1);
+    DFF(in=next1, out=out1, out=out[1]);
+
+    // Bit 2
+    Nand(a=out2, b=nload, out=oa2); Nand(a=in[2], b=load, out=ia2); Nand(a=oa2, b=ia2, out=next2);
+    DFF(in=next2, out=out2, out=out[2]);
+
+    // Bit 3
+    Nand(a=out3, b=nload, out=oa3); Nand(a=in[3], b=load, out=ia3); Nand(a=oa3, b=ia3, out=next3);
+    DFF(in=next3, out=out3, out=out[3]);
+
+    // Bit 4
+    Nand(a=out4, b=nload, out=oa4); Nand(a=in[4], b=load, out=ia4); Nand(a=oa4, b=ia4, out=next4);
+    DFF(in=next4, out=out4, out=out[4]);
+
+    // Bit 5
+    Nand(a=out5, b=nload, out=oa5); Nand(a=in[5], b=load, out=ia5); Nand(a=oa5, b=ia5, out=next5);
+    DFF(in=next5, out=out5, out=out[5]);
+
+    // Bit 6
+    Nand(a=out6, b=nload, out=oa6); Nand(a=in[6], b=load, out=ia6); Nand(a=oa6, b=ia6, out=next6);
+    DFF(in=next6, out=out6, out=out[6]);
+
+    // Bit 7
+    Nand(a=out7, b=nload, out=oa7); Nand(a=in[7], b=load, out=ia7); Nand(a=oa7, b=ia7, out=next7);
+    DFF(in=next7, out=out7, out=out[7]);
+
+    // Bit 8
+    Nand(a=out8, b=nload, out=oa8); Nand(a=in[8], b=load, out=ia8); Nand(a=oa8, b=ia8, out=next8);
+    DFF(in=next8, out=out8, out=out[8]);
+
+    // Bit 9
+    Nand(a=out9, b=nload, out=oa9); Nand(a=in[9], b=load, out=ia9); Nand(a=oa9, b=ia9, out=next9);
+    DFF(in=next9, out=out9, out=out[9]);
+
+    // Bit 10
+    Nand(a=out10, b=nload, out=oa10); Nand(a=in[10], b=load, out=ia10); Nand(a=oa10, b=ia10, out=next10);
+    DFF(in=next10, out=out10, out=out[10]);
+
+    // Bit 11
+    Nand(a=out11, b=nload, out=oa11); Nand(a=in[11], b=load, out=ia11); Nand(a=oa11, b=ia11, out=next11);
+    DFF(in=next11, out=out11, out=out[11]);
+
+    // Bit 12
+    Nand(a=out12, b=nload, out=oa12); Nand(a=in[12], b=load, out=ia12); Nand(a=oa12, b=ia12, out=next12);
+    DFF(in=next12, out=out12, out=out[12]);
+
+    // Bit 13
+    Nand(a=out13, b=nload, out=oa13); Nand(a=in[13], b=load, out=ia13); Nand(a=oa13, b=ia13, out=next13);
+    DFF(in=next13, out=out13, out=out[13]);
+
+    // Bit 14
+    Nand(a=out14, b=nload, out=oa14); Nand(a=in[14], b=load, out=ia14); Nand(a=oa14, b=ia14, out=next14);
+    DFF(in=next14, out=out14, out=out[14]);
+
+    // Bit 15
+    Nand(a=out15, b=nload, out=oa15); Nand(a=in[15], b=load, out=ia15); Nand(a=oa15, b=ia15, out=next15);
+    DFF(in=next15, out=out15, out=out[15]);
+}

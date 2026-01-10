@@ -1,0 +1,53 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/1/DMux8Way.hdl
+/**
+ * 8-way demultiplexor:
+ * [a, b, c, d, e, f, g, h] = [in, 0,  0,  0,  0,  0,  0,  0] if sel = 000
+ *                            [0, in,  0,  0,  0,  0,  0,  0] if sel = 001
+ *                            [0,  0, in,  0,  0,  0,  0,  0] if sel = 010
+ *                            [0,  0,  0, in,  0,  0,  0,  0] if sel = 011
+ *                            [0,  0,  0,  0, in,  0,  0,  0] if sel = 100
+ *                            [0,  0,  0,  0,  0, in,  0,  0] if sel = 101
+ *                            [0,  0,  0,  0,  0,  0, in,  0] if sel = 110
+ *                            [0,  0,  0,  0,  0,  0,  0, in] if sel = 111
+ */
+CHIP DMux8Way {
+    IN in, sel[3];
+    OUT a, b, c, d, e, f, g, h;
+
+    PARTS:
+    //// Replace this comment with your code.
+    Not(in = sel[0],out = notsel0);
+    Not(in = sel[1],out = notsel1);
+    Not(in = sel[2],out = notsel2);
+    Nand(a = in,b = notsel2,out = a7);
+    Nand(a = a7,b = a7,out = abcd);
+    Nand(a = in,b = sel[2],out = b7);
+    Nand(a = b7,b = b7,out = efgh);
+    Nand(a = abcd,b = notsel1,out = a6);
+    Nand(a = a6,b = a6,out = ab);
+    Nand(a = abcd,b = sel[1],out = b6);
+    Nand(a = b6,b = b6,out = cd);
+    Nand(a = efgh,b = notsel1,out = a5);
+    Nand(a = a5,b = a5,out = ef);
+    Nand(a = efgh,b = sel[1],out = b5);
+    Nand(a = b5,b = b5,out = gh);
+    Nand(a = ab,b = notsel0,out = a4);
+    Nand(a = a4,b = a4,out = a);
+    Nand(a = ab,b = sel[0],out = b4);
+    Nand(a = b4,b = b4,out = b);
+    Nand(a = cd,b = notsel0,out = a3);
+    Nand(a = a3,b = a3,out = c);
+    Nand(a = cd,b = sel[0],out = b3);
+    Nand(a = b3,b = b3,out = d);
+    Nand(a = ef,b = notsel0,out = a2);
+    Nand(a = a2,b = a2,out = e);
+    Nand(a = ef,b = sel[0],out = b2);
+    Nand(a = b2,b = b2,out = f);
+    Nand(a = gh,b = notsel0,out = a1);
+    Nand(a = a1,b = a1,out = g);
+    Nand(a = gh,b = sel[0],out = b1);
+    Nand(a = b1,b = b1,out = h);
+}
