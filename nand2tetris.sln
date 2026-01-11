@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nand2tetris", "nand2tetris", "{D4DA4A8D-B0EC-D73C-6585-F3D0D50256D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "projects", "projects", "{42749767-9DBC-AF3D-54C0-5CFF93FE4AD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6", "6", "{B114C230-29A3-FB1D-5F1C-03976D35B87B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "add", "add", "{808445A9-755B-5CA3-62F7-0CB5576FF0BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblerProject", "nand2tetris\projects\6\add\AssemblerProject\AssemblerProject.csproj", "{ABCAAF6E-B544-F897-CF55-C0942996072D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABCAAF6E-B544-F897-CF55-C0942996072D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABCAAF6E-B544-F897-CF55-C0942996072D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABCAAF6E-B544-F897-CF55-C0942996072D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABCAAF6E-B544-F897-CF55-C0942996072D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42749767-9DBC-AF3D-54C0-5CFF93FE4AD3} = {D4DA4A8D-B0EC-D73C-6585-F3D0D50256D1}
+		{B114C230-29A3-FB1D-5F1C-03976D35B87B} = {42749767-9DBC-AF3D-54C0-5CFF93FE4AD3}
+		{808445A9-755B-5CA3-62F7-0CB5576FF0BF} = {B114C230-29A3-FB1D-5F1C-03976D35B87B}
+		{ABCAAF6E-B544-F897-CF55-C0942996072D} = {808445A9-755B-5CA3-62F7-0CB5576FF0BF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0987879A-9206-438F-8AC3-50D6629AA196}
+	EndGlobalSection
+EndGlobal
