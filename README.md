@@ -21,10 +21,16 @@
 | :--- | :--- | :--- | :---: |
 | 1 | **Boolean Logic** | 基礎論理回路の製作。**[Ex]** Nand使用数の最小化。 | ✅ |
 | 2 | **Boolean Arithmetic** | ALU・加算器の製作。**[Ex]** 回路段数の削減（遅延最適化）。 | ✅ |
-| 3 | **Sequential Logic** | メモリ・DFFの実装。**[Ex]** C#による回路シミュレータの自作。 | 🏃 |
-| 4 | **Machine Language** | アセンブリの理解。**[Ex]** C#命令とアセンブリの実行効率比較。 | ⏳ |
-| 5 | **Computer Arch** | Hackコンピュータ本体の製作。 | ⏳ |
-| 6 | **Assembler** | Hackアセンブラの実装。 | ⏳ |
+| 3 | **Sequential Logic** | メモリ・DFFの実装。**[Ex]** C#による回路シミュレータの自作。 | ✅ |
+| 4 | **Machine Language** | アセンブリの理解。**[Ex]** C#命令とアセンブリの実行効率比較。 | ✅ |
+| 5 | **Computer Arch** | Hackコンピュータ本体の製作。 | ✅ |
+| 6 | **Assembler** | Hackアセンブラの実装。 | ✅ |
+| 7 | **VM I: Stack Arithmetic** | VM翻訳機の基礎。**[Ex]** スタックポインタ操作の命令数削減。 | 🏃 |
+| 8 | **VM II: Program Control** | 関数呼出と制御。**[Ex]** 再帰呼び出し時のメモリレイアウト可視化。 | ⏳ |
+| 9 | **High-Level Language** | Jack言語によるアプリ開発。**[Ex]** 自作ゲームエンジン/ロジックの移植。 | ⏳ |
+| 10 | **Compiler I: Syntax Analysis** | 字句・構文解析。**[Ex]** 独自のパーサコンビネータによる実装。 | ⏳ |
+| 11 | **Compiler II: Code Gen** | VMコード生成。**[Ex]** Step Bを見据えた中間表現(IR)の設計。 | ⏳ |
+| 12 | **Operating System** | 標準ライブラリの実装。**[Ex]** `Math.jack` のアルゴリズム高速化。 | ⏳ |
 
 ### 🛠 Part 2: Extended Compiler Steps (Ex)
 標準のJackコンパイラを拡張し、現代的なコンパイラ基盤へと発展させます。
