@@ -1,0 +1,15 @@
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\bin\Debug\net9.0\Vmconpiler.exe
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\bin\Debug\net9.0\Vmconpiler.deps.json
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\bin\Debug\net9.0\Vmconpiler.runtimeconfig.json
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\bin\Debug\net9.0\Vmconpiler.dll
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\bin\Debug\net9.0\Vmconpiler.pdb
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\Vmconpiler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\Vmconpiler.AssemblyInfoInputs.cache
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\Vmconpiler.AssemblyInfo.cs
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\Vmconpiler.csproj.CoreCompileInputs.cache
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\Vmconpiler.sourcelink.json
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\Vmconpiler.dll
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\refint\Vmconpiler.dll
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\Vmconpiler.pdb
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\Vmconpiler.genruntimeconfig.cache
+C:\Users\canon\nand2tetris\nand2tetris\projects\7\Vmconpiler\obj\Debug\net9.0\ref\Vmconpiler.dll

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\canon\\Downloads\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\Vmconpiler.csproj": {}
+    "C:\\Users\\canon\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\Vmconpiler.csproj": {}
   },
   "projects": {
-    "C:\\Users\\canon\\Downloads\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\Vmconpiler.csproj": {
+    "C:\\Users\\canon\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\Vmconpiler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\canon\\Downloads\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\Vmconpiler.csproj",
+        "projectUniqueName": "C:\\Users\\canon\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\Vmconpiler.csproj",
         "projectName": "Vmconpiler",
-        "projectPath": "C:\\Users\\canon\\Downloads\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\Vmconpiler.csproj",
+        "projectPath": "C:\\Users\\canon\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\Vmconpiler.csproj",
         "packagesPath": "C:\\Users\\canon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\canon\\Downloads\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\obj\\",
+        "outputPath": "C:\\Users\\canon\\nand2tetris\\nand2tetris\\projects\\7\\Vmconpiler\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
